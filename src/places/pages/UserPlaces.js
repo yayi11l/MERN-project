@@ -32,10 +32,20 @@ const DUMMY_PLACES = [
   }
 ];
 
+// const UserPlaces = () => {
+//   const userId = useParams().userId;
+//   const loadedPlaces = DUMMY_PLACES.filter((place) => place.creator === userId);
+//   return <PlaceList items={loadedPlaces} />;
+// };
 const UserPlaces = () => {
+  // return <PlaceList items={DUMMY_PLACES} />;
   const userId = useParams().userId;
-  const loadedPlaces = DUMMY_PLACES.filter((place) => place.creator === userId);
+  const loadedPlaces = DUMMY_PLACES.filter((place) => place.creator === String(userId));
+  // const { id } = useParams();
+  // const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === id);
+
   return <PlaceList items={loadedPlaces} />;
 };
+
 
 export default UserPlaces;
